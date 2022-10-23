@@ -1,0 +1,26 @@
+From f437aeb1fcb11de7fbb49b04bb9416ca81bfa78b Mon Sep 17 00:00:00 2001
+From: wpcasarin <72427968+wpcasarin@users.noreply.github.com>
+Date: Sat, 22 Oct 2022 23:51:39 -0300
+Subject: [PATCH] patch st-scrollback-mouse
+
+This patch allows scrolling using MouseWheel.
+---
+ config.def.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/config.def.h b/config.def.h
+index e3b469b..c217315 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -176,6 +176,8 @@ static uint forcemousemod = ShiftMask;
+  */
+ static MouseShortcut mshortcuts[] = {
+ 	/* mask                 button   function        argument       release */
++	{ ShiftMask,            Button4, kscrollup,      {.i = 1} },
++	{ ShiftMask,            Button5, kscrolldown,    {.i = 1} },
+ 	{ XK_ANY_MOD,           Button2, selpaste,       {.i = 0},      1 },
+ 	{ ShiftMask,            Button4, ttysend,        {.s = "\033[5;2~"} },
+ 	{ XK_ANY_MOD,           Button4, ttysend,        {.s = "\031"} },
+-- 
+2.38.1
+
